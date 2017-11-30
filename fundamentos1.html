@@ -19,9 +19,10 @@
 	<h2>Definiendo un Perro</h2>
 	<script>
 
-		function Perro(n,r,e,s,a,f,c){
+		function Perro(n,r,e,s,a,f){
 			// this dentro de una funcion es el objeto que se define en la funcion
 			var o = this;
+			var imagen = document.createElement("img");
 
 			o.nombre = n;
 			o.raza = r;
@@ -29,7 +30,7 @@
 			//o.sexo = s;
 			o.adiestrado = a;
 			o.foto = f;
-			o.comida = c;
+			
 
 			//Asignacion ( 1 igual = )
 
@@ -43,26 +44,43 @@
 			//variable = (condicion)?verdadero:falso
 
 			o.aparecer = function() {
+				//alert("El objeto aparece");
+				//var imagen = document.createElement("img");
+				imagen.src = o.foto;
+				imagen.alt = o.nombre;
+				imagen.title = o.nombre;
 
+				
+				document.body.appendChild(imagen);
 			};
 
 			o.ladrar =  function() {
+				var audio = document.createElement("audio");
+				audio.src = "activos/guau.mp3";
+				//audio.controls = true;
+				document.body.appendChild(audio);
+				return audio.play();
+			};
 
-			}
-
-			o.comer =  function() {
-				
-			}
+			o.comer =  function(c) {
+				o.comida = c;
+				var alerta = alert(o.nombre+" comío "+o.comida);
+				return 	alerta;
+			};
 
 			o.mover =  function() {
+				//alert("El objeto se ha movido")
+				imagen.style.position = 'relative';
+				imagen.style.left = '10em';
+				imagen.style.borderRadius = '100%';
 				
-			}
-		}
+			};
+		};
 
 		function iniciar(){
 			// alert("Ejecutando funcion iniciar");
 
-			var kenai = new Perro("kEnAi","FireFox",2,true,true,"activos/kenai.jpg","croqueta");
+			var kenai = new Perro("kEnAi","FireFox",2,true,true,"activos/kenai.jpg");
 			// alert(kenai);
 			document.write(kenai+"<br>"+window+"<br>"+navigator+"<br>"+document);
 			console.log(kenai,window,document,navigator);
@@ -72,6 +90,10 @@
 			document.write("<p>"+kenai.edad+"</p>");
 			document.write("<p>"+kenai.sexo+"</p>");
 			document.write("<p>"+kenai.adiestrado+"</p>");
+			kenai.aparecer();
+			kenai.comer("tacos");
+			kenai.mover();
+			kenai.ladrar();
 		}
 
 		iniciar();
