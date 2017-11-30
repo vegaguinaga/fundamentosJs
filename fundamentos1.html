@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Fundamentos de Programacion JavaScript parte 1</title>
+	<meta name="description" content="En este ejercicio entenderemos fundamentos de programacion en JavaScript">
+	<style>
+		body, html {
+			font-family: Helvetica, sans-serif;
+			font-size: 16px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Fundamentos de Programacion JavaScript parte 1</h1>
+	<p>
+		<a href="index.html">Regresar al inicio</a>
+	</p>
+	<h2>Definiendo un Perro</h2>
+	<script>
+
+		function Perro(n,r,e,s,a,f,c){
+			// this dentro de una funcion es el objeto que se define en la funcion
+			var o = this;
+
+			o.nombre = n;
+			o.raza = r;
+			o.edad = e;
+			//o.sexo = s;
+			o.adiestrado = a;
+			o.foto = f;
+			o.comida = c;
+
+			//Asignacion ( 1 igual = )
+
+			//Comparacion ( 2 iguales == compara que los valores sean iguales)
+			// o.sexo = (s==true) ? "Macho" : "Hembra";
+			
+			//Identico ( 3 iguales === compara que los varoles sean iguales y su tipo de dato )
+			// o.sexo = (s===true) ? "Macho" : "Hembra";
+
+			//operador ternario
+			//variable = (condicion)?verdadero:falso
+
+			o.aparecer = function() {
+
+			};
+
+			o.ladrar =  function() {
+
+			}
+
+			o.comer =  function() {
+				
+			}
+
+			o.mover =  function() {
+				
+			}
+		}
+
+		function iniciar(){
+			// alert("Ejecutando funcion iniciar");
+
+			var kenai = new Perro("kEnAi","FireFox",2,true,true,"activos/kenai.jpg","croqueta");
+			// alert(kenai);
+			document.write(kenai+"<br>"+window+"<br>"+navigator+"<br>"+document);
+			console.log(kenai,window,document,navigator);
+
+			document.write("<p>"+kenai.nombre+"</p>");
+			document.write("<p>"+kenai.raza+"</p>");
+			document.write("<p>"+kenai.edad+"</p>");
+			document.write("<p>"+kenai.sexo+"</p>");
+			document.write("<p>"+kenai.adiestrado+"</p>");
+		}
+
+		iniciar();
+	</script>
+</body>
+</html>
